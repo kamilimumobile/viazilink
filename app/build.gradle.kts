@@ -71,7 +71,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     // Firestore
-    implementation(platform("com.google.firebase.firebase-bom:33.1.1"))
+    implementation(libs.firebase.bom)
     implementation(libs.firebase.firestore)
 
     // Dagger-Hilt
