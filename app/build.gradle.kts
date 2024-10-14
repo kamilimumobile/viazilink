@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("com.google.gms.google-services")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -71,4 +73,12 @@ dependencies {
     // Firestore
     implementation(platform("com.google.firebase.firebase-bom:33.1.1"))
     implementation(libs.firebase.firestore)
+
+    // Dagger-Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+
+    // DataStore
+    implementation(libs.androidx.datastore.preferences)
 }
