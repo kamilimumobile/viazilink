@@ -71,6 +71,10 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")  // Coroutines test
 
+    // ViewModel Lifecycle
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+
     // Firestore
     implementation(libs.firebase.bom)
     implementation(libs.firebase.firestore)
