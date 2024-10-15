@@ -74,6 +74,9 @@ dependencies {
     implementation(libs.firebase.bom)
     implementation(libs.firebase.firestore)
 
+    // FirebaseAuth
+    implementation(libs.firebase.auth.ktx)
+
     // Dagger-Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
