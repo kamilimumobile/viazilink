@@ -3,5 +3,8 @@ package org.kamilimu.viazilink.util
 enum class ScreenNames(val route: String) {
     LoginScreen(route = "Login"),
     SignUpScreen(route = "Sign Up"),
-    HomeScreen(route = "ViaziLink")
+    HomeScreen(route = "ViaziLink"),
+    NewListingScreen(route = "Add Listing"),
+    ProfileScreen(route = "Profile"),
+    ExistingListingsScreen(route = "My Listings")
 }
