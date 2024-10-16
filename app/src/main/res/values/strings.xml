@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">viazilink</string>
+
+    <!-- Login Screen -->
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="signup_prompt">Don\'t have an account? Sign Up</string>
+    <string name="password_visibility_icon">Turn password visibility on or off</string>
+
+    <!-- Signup screen -->
+    <string name="signup">Sign Up</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="login_prompt">Already have an account? Login</string>
+
+    <!-- NavBar Items -->
+    <string name="home">Home</string>
+    <string name="new_listing">Add</string>
+    <string name="profile">Profile</string>
+    <string name="listings">Listings</string>
+
+    <!-- TopBar -->
+    <string name="back_button">Back Button</string>
+
+    <!-- Farmer HomePage -->
+    <string name="recent_orders">Recent Orders</string>
+    
+    <!-- Farmer AddListingPage -->
+    <string name="type_of_potato">Type of Potato</string>
+    <string name="quantity">Quantity (KG)</string>
+    <string name="price_per_kg">Price per KG</string>
+    <string name="delivery_timeframe">Delivery Time (Days)</string>
+    <string name="post_listing">Post Listing</string>
+    <string name="select_an_option">Select an Option</string>
 </resources>
