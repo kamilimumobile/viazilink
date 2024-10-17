@@ -1,5 +1,7 @@
 package org.kamilimu.viazilink.farmer.presentation
 
+import android.content.res.Configuration
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -17,48 +19,29 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import org.kamilimu.viazilink.R
 import org.kamilimu.viazilink.farmer.presentation.components.BottomBar
 import org.kamilimu.viazilink.farmer.presentation.components.NavBarItem
 import org.kamilimu.viazilink.farmer.presentation.components.TopBar
-import org.kamilimu.viazilink.util.AuthStatus
+import org.kamilimu.viazilink.ui.theme.AppTheme
 import org.kamilimu.viazilink.util.ScreenNames
-
-@Composable
-fun MainScreen(
-    modifier: Modifier = Modifier,
-    authViewModel: AuthViewModel = hiltViewModel()
-) {
-    val navController: NavHostController = rememberNavController()
-    val authStatus by authViewModel.authStatus.collectAsStateWithLifecycle()
-
-    MainScreenContent(
-        modifier = modifier,
-        navController = navController,
-        authStatus = authStatus
-    )
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreenContent(
+fun MainScreen(
     modifier: Modifier = Modifier,
-    navController: NavHostController,
-    authStatus: AuthStatus
+    navController: NavHostController
 ) {
+    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentScreen = ScreenNames.entries
         .find { it.route == backStackEntry?.destination?.route } ?: ScreenNames.HomeScreen
-
-    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
     Scaffold(
         modifier = modifier,
@@ -106,56 +89,30 @@ fun MainScreenContent(
     ) { paddingValues ->
         NavHost(
             navController = navController,
-            startDestination = if (authStatus == AuthStatus.Authenticated) {
-                "farmerModule"
-            } else {
-                "authScreens"
-            },
+            startDestination = ScreenNames.HomeScreen.route,
             modifier = Modifier.padding(paddingValues)
         ) {
-            /**
-             * Nested nav graph for Auth screens
-             */
-            navigation(
-                startDestination = ScreenNames.LoginScreen.route,
-                route = "authScreens"
-            ) {
-                composable(route = ScreenNames.LoginScreen.route) {
-                    LoginScreen(
-                        navController = navController,
-                        onSuccessfulLogin = {
-                            navController.navigate(route = "farmerModule") {
-                                // Pop all child destinations of `authScreens` from the backStack
-                                popUpTo("authScreens") {
-                                    inclusive = true
-                                }
-                            }
-                        }
-                    )
-                }
-
-                composable(route = ScreenNames.SignUpScreen.route) {
-                    SignUpScreen(navController = navController)
-                }
+            composable(route = ScreenNames.HomeScreen.route) {
+                HomePage(scrollBehavior = scrollBehavior)
             }
 
-            /**
-             * Nested nav graph for farmer screens once a user logs in successfully
-             */
-            navigation(
-                startDestination = ScreenNames.HomeScreen.route,
-                route = "farmerModule"
-            ) {
-                composable(route = ScreenNames.HomeScreen.route) {
-                    HomePage(scrollBehavior = scrollBehavior)
-                }
+            composable(route = ScreenNames.NewListingScreen.route) {}
 
-                composable(route = ScreenNames.NewListingScreen.route) {}
+            composable(route = ScreenNames.ProfileScreen.route) {}
 
-                composable(route = ScreenNames.ProfileScreen.route) {}
-
-                composable(route = ScreenNames.ExistingListingsScreen.route) {}
-            }
+            composable(route = ScreenNames.ExistingListingsScreen.route) {}
         }
+    }
+}
+
+@Preview(name = "MainScreenLight", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
+@Preview(name = "MainScreenDark", showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+private fun MainScreenPreview() {
+    AppTheme {
+        MainScreen(
+            modifier = Modifier.fillMaxSize(),
+            navController = rememberNavController()
+        )
     }
 }

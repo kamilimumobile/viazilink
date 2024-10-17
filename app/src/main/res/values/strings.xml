@@ -32,4 +32,7 @@
     <string name="delivery_timeframe">Delivery Time (Days)</string>
     <string name="post_listing">Post Listing</string>
     <string name="select_an_option">Select an Option</string>
+
+    <!-- Start Screen -->
+    <string name="viazilink">ViaziLink</string>
 </resources>

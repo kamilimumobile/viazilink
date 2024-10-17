@@ -7,9 +7,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import org.kamilimu.viazilink.farmer.presentation.AuthViewModel
 import org.kamilimu.viazilink.farmer.presentation.MainScreen
+import org.kamilimu.viazilink.farmer.presentation.NavigationHandler
 import org.kamilimu.viazilink.ui.theme.AppTheme
 
 @AndroidEntryPoint
@@ -23,7 +29,14 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MainScreen()
+                    val authViewModel: AuthViewModel = hiltViewModel()
+                    val authStatus by authViewModel.authStatus.collectAsStateWithLifecycle()
+                    val navController = rememberNavController()
+
+                    NavigationHandler(
+                        navController = navController,
+                        authStatus = authStatus
+                    )
                 }
             }
         }
