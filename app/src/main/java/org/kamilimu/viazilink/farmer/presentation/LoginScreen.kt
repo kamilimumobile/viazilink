@@ -50,7 +50,8 @@ import org.kamilimu.viazilink.util.components.LoadingIndicator
 @Composable
 fun LoginScreen(
     authViewModel: AuthViewModel = hiltViewModel(),
-    navController: NavHostController
+    navController: NavHostController,
+    onSuccessfulLogin: () -> Unit
 ) {
     val authStatus by authViewModel.authStatus.collectAsStateWithLifecycle()
 
@@ -63,11 +64,7 @@ fun LoginScreen(
                 launchSingleTop = true
             }
         },
-        onSuccessfulLogin = {
-            navController.navigate(ScreenNames.HomeScreen.route) {
-                launchSingleTop = true
-            }
-        }
+        onSuccessfulLogin = onSuccessfulLogin
     )
 }
 
