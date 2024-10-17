@@ -1,8 +1,6 @@
 package org.kamilimu.viazilink.farmer.presentation
 
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -13,7 +11,6 @@ import org.kamilimu.viazilink.farmer.presentation.components.StartScreen
 import org.kamilimu.viazilink.util.AuthStatus
 import org.kamilimu.viazilink.util.ScreenNames
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun NavigationHandler(
     navController: NavHostController,
@@ -64,7 +61,6 @@ internal fun NavigationHandler(
                     }
                 )
             }
-
             composable(route = ScreenNames.SignUpScreen.route) {
                 SignUpScreen(navController = navController)
             }
@@ -79,7 +75,7 @@ internal fun NavigationHandler(
         ) {
             composable(route = ScreenNames.MainScreen.route) {
                 MainScreen(
-                    navController = navController,
+//                    navController = navController,
                     modifier = Modifier.fillMaxSize()
                 )
             }

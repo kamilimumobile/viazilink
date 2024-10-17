@@ -36,7 +36,7 @@ import org.kamilimu.viazilink.util.ScreenNames
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
-    navController: NavHostController
+    navController: NavHostController = rememberNavController()
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     val backStackEntry by navController.currentBackStackEntryAsState()
@@ -88,18 +88,15 @@ fun MainScreen(
         }
     ) { paddingValues ->
         NavHost(
-            navController = navController,
+            navController = rememberNavController(),
             startDestination = ScreenNames.HomeScreen.route,
             modifier = Modifier.padding(paddingValues)
         ) {
             composable(route = ScreenNames.HomeScreen.route) {
                 HomePage(scrollBehavior = scrollBehavior)
             }
-
             composable(route = ScreenNames.NewListingScreen.route) {}
-
             composable(route = ScreenNames.ProfileScreen.route) {}
-
             composable(route = ScreenNames.ExistingListingsScreen.route) {}
         }
     }
