@@ -101,4 +101,7 @@ dependencies {
 
     // Icons-Extended
     implementation(libs.androidx.material.icons.extended)
+
+    // Arrow
+    implementation(libs.arrow.core)
 }
