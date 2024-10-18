@@ -95,7 +95,9 @@ fun MainScreen(
             composable(route = ScreenNames.HomeScreen.route) {
                 HomePage(scrollBehavior = scrollBehavior)
             }
-            composable(route = ScreenNames.NewListingScreen.route) {}
+            composable(route = ScreenNames.NewListingScreen.route) {
+                AddListingPage()
+            }
             composable(route = ScreenNames.ProfileScreen.route) {}
             composable(route = ScreenNames.ExistingListingsScreen.route) {}
         }
