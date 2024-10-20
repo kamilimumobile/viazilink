@@ -1,6 +1,7 @@
 package org.kamilimu.viazilink.farmer.presentation
 
 import android.content.res.Configuration
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -18,20 +19,33 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.kamilimu.viazilink.R
+import org.kamilimu.viazilink.farmer.domain.model.Order
+import org.kamilimu.viazilink.farmer.presentation.components.OrderCard
 import org.kamilimu.viazilink.ui.theme.AppTheme
+import org.kamilimu.viazilink.util.ScreenViewState
+import org.kamilimu.viazilink.util.components.LoadingIndicator
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomePage(scrollBehavior: TopAppBarScrollBehavior) {
+fun HomePage(
+    scrollBehavior: TopAppBarScrollBehavior,
+    homePageViewModel: HomePageViewModel = hiltViewModel()
+) {
+    val screenState by homePageViewModel.homeUiState.collectAsStateWithLifecycle()
+
     HomePageContent(
         scrollBehavior = scrollBehavior,
+        screenState = screenState,
         modifier = Modifier
             .fillMaxSize()
             .padding(dimensionResource(R.dimen.padding_small))
@@ -42,7 +56,8 @@ fun HomePage(scrollBehavior: TopAppBarScrollBehavior) {
 @Composable
 private fun HomePageContent(
     modifier: Modifier = Modifier,
-    scrollBehavior: TopAppBarScrollBehavior
+    scrollBehavior: TopAppBarScrollBehavior,
+    screenState: ScreenViewState
 ) {
     val scrollState = rememberLazyListState()
     LazyColumn(
@@ -84,6 +99,36 @@ private fun HomePageContent(
             }
         }
         /*TODO: Fetch a list of orders for a farmer*/
+        item {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                when (screenState) {
+                    is ScreenViewState.Loading -> {
+                        LoadingIndicator()
+                    }
+
+                    is ScreenViewState.Success<*> -> {
+                        val orders = screenState.data as? List<Order>
+                        orders?.let {
+                            orders.forEach { order ->
+                                OrderCard(order = order)
+                            }
+                        }
+                    }
+
+                    is ScreenViewState.Failure -> {
+                        Text(
+                            text = screenState.message,
+                            style = MaterialTheme.typography.titleLarge
+                        )
+                    }
+
+                    else -> Unit
+                }
+            }
+        }
     }
 }
 
@@ -95,6 +140,7 @@ private fun HomePagePreview() {
     AppTheme {
         HomePageContent(
             scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(),
+            screenState = ScreenViewState.Failure("No Records Found"),
             modifier = Modifier.padding(dimensionResource(R.dimen.padding_small))
         )
     }

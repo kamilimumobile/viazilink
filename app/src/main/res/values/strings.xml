@@ -24,6 +24,7 @@
 
     <!-- Farmer HomePage -->
     <string name="recent_orders">Recent Orders</string>
+    <string name="no_orders">You Don\'t Have Any Orders</string>
     
     <!-- Farmer AddListingPage -->
     <string name="type_of_potato">Type of Potato</string>
@@ -38,4 +39,7 @@
 
     <!-- Start Screen -->
     <string name="viazilink">ViaziLink</string>
+
+    <!-- Order Screen -->
+    <string name="image_description">Product Image</string>
 </resources>
