@@ -104,4 +104,7 @@ dependencies {
 
     // Arrow
     implementation(libs.arrow.core)
+
+    // Coil
+    implementation(libs.coil.compose)
 }
