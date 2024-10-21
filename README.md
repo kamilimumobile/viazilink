@@ -1,5 +1,5 @@
 <p align="center">
-    <h1 align="center">VIAZILINK</h1>
+    <h1 align="center">ViaziLink</h1>
 </p>
 <p align="center">
     <em><code>❯ REPLACE-ME</code></em>
@@ -142,7 +142,7 @@
 
 ###  Prerequisites
 
-**Kotlin**: `version x.y.z`
+**Kotlin**: `version 1.9.0`
 
 ###  Installation
 
@@ -238,7 +238,9 @@ Contributions are welcome! Here are several ways you can contribute:
 ---
 
 ##  Acknowledgments
-
-- List any resources, contributors, inspiration, etc. here.
+The team behind it all:
+- Hansel Omondi
+- Kristian Onjala
+- Prince Gichere
 
 ---
