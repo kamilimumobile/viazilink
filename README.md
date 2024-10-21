@@ -1,7 +1,4 @@
 <p align="center">
-  <img src="https://img.icons8.com/?size=512&id=55494&format=png" width="20%" alt="VIAZILINK-logo">
-</p>
-<p align="center">
     <h1 align="center">VIAZILINK</h1>
 </p>
 <p align="center">
@@ -186,9 +183,12 @@ Execute the test suite using the following command:
 
 ##  Project Roadmap
 
-- [X] **`Task 1`**: <strike>Implement feature one.</strike>
-- [ ] **`Task 2`**: Implement feature two.
-- [ ] **`Task 3`**: Implement feature three.
+- [X] **`Task 1`**: <strike>Create the Backend structure and add dependecies</strike>
+- [x] **`Task 2`**: Come up with the UI design.
+- [x] **`Task 3`**: Build the Login Page.
+- [x] **`Task 4`**: Start with the Farmer's Page.
+- [ ] **`Task 5`**: Proceed to the Client's Page.
+- [ ] **`Task 6`**: Integrate Online Payment services.
 
 ---
 
@@ -234,12 +234,6 @@ Contributions are welcome! Here are several ways you can contribute:
    </a>
 </p>
 </details>
-
----
-
-##  License
-
-This project is protected under the [SELECT-A-LICENSE](https://choosealicense.com/licenses) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
 
 ---
 
