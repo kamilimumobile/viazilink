@@ -36,7 +36,8 @@ import org.kamilimu.viazilink.util.ScreenNames
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
-    navController: NavHostController = rememberNavController()
+    navController: NavHostController = rememberNavController(),
+    rootNavController: NavHostController
 ) {
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
     val backStackEntry by navController.currentBackStackEntryAsState()
@@ -108,7 +109,10 @@ fun MainScreen(
                 AddListingPage()
             }
             composable(route = ScreenNames.ProfileScreen.route) {
-                ProfilePage()
+                ProfilePage(
+                    navController = rootNavController,
+                    modifier = Modifier.fillMaxSize()
+                )
             }
             composable(route = ScreenNames.ExistingListingsScreen.route) {
                 ProduceListingsPage(scrollBehavior = scrollBehavior)
@@ -124,7 +128,8 @@ private fun MainScreenPreview() {
     AppTheme {
         MainScreen(
             modifier = Modifier.fillMaxSize(),
-            navController = rememberNavController()
+            navController = rememberNavController(),
+            rootNavController = rememberNavController()
         )
     }
 }
