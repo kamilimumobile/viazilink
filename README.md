@@ -2,7 +2,7 @@
     <h1 align="center">ViaziLink</h1>
 </p>
 <p align="center">
-    <em><code>❯ REPLACE-ME</code></em>
+    <em><code>❯ <i>Bringing the Potato Market to You</i></code></em>
 </p>
 <p align="center">
 	<img src="https://img.shields.io/github/license/kamilimumobile/viazilink?style=flat&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
@@ -39,13 +39,29 @@
 
 ##  Overview
 
-<code>❯ REPLACE-ME</code>
+<code>❯ ViaziLink is a mobile application designed to empower small-scale potato farmers in Kenya by providing direct access to markets, bypassing middlemen who often exploit them with low prices. The platform offers real-time market price information, facilitates logistics coordination, and enables farmers to sell their produce directly to consumers and retailers.
+
+Potato farming plays a crucial role in Kenya's agricultural economy, employing over 3.5 million people and contributing more than 50 billion KSh annually. However, due to logistical constraints, lack of market access, and middlemen exploitation, many farmers are unable to get fair prices for their crops. ViaziLink addresses this issue by providing a digital platform that connects farmers with buyers, ensuring fair pricing and reliable logistics support.
+
+This project was developed as part of an innovation initiative aimed at improving the livelihoods of potato farmers in Kenya, with our first focus on Nyandarua County.</code>
 
 ---
 
 ##  Features
 
-<code>❯ REPLACE-ME</code>
+- [X] Direct Sales to Consumers and Retailers: Farmers can list their produce for sale directly to buyers, cutting out the middlemen and ensuring they receive fair prices.
+
+- [X] Logistics Coordination: ViaziLink helps farmers connect with local transport services to ensure timely delivery of their perishable goods, minimizing delays and reducing losses.
+
+- [X] Farmer Profiles: Farmers can create detailed profiles, showcasing their farm, produce listings, and sales history. Buyers can view ratings and reviews, creating trust and transparency in the marketplace.
+
+- [X] User-Friendly Interface: Designed for ease of use, the app ensures that farmers with varying levels of digital literacy can easily navigate and benefit from the platform.
+
+- [] Secure Payments via Mobile Money: The app integrates mobile payment solutions such as M-Pesa, allowing for quick and secure transactions between farmers and buyers.
+
+- [] Real-Time Market Price Alerts: Farmers receive up-to-date information on potato prices from major markets (e.g., Nairobi), enabling them to make informed decisions about when and where to sell their produce.
+
+- [] Market Trends & Insights: ViaziLink provides insights into market demand, seasonal trends, and buyer preferences, helping farmers optimize their crop production and sales strategies.
 
 ---
 
@@ -183,7 +199,7 @@ Execute the test suite using the following command:
 
 ##  Project Roadmap
 
-- [X] **`Task 1`**: <strike>Create the Backend structure and add dependecies</strike>
+- [X] **`Task 1`**: Create the Backend structure and add dependecies
 - [x] **`Task 2`**: Come up with the UI design.
 - [x] **`Task 3`**: Build the Login Page.
 - [x] **`Task 4`**: Start with the Farmer's Page.
