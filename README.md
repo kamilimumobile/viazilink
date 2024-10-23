@@ -2,7 +2,7 @@
     <h1 align="center">ViaziLink</h1>
 </p>
 <p align="center">
-    <em><code>❯ <i>Bringing the Potato Market to You</i></code></em>
+    <em><code>❯ Bringing the Potato Market to You</code></em>
 </p>
 <p align="center">
 	<img src="https://img.shields.io/github/license/kamilimumobile/viazilink?style=flat&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
