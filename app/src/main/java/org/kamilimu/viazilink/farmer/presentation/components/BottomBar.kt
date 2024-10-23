@@ -14,13 +14,14 @@ import org.kamilimu.viazilink.util.ScreenNames
 fun BottomBar(
     modifier: Modifier = Modifier,
     navBarItems: List<NavBarItem>,
-    currentScreen: ScreenNames
+    currentScreen: ScreenNames,
+    onItemSelected: (ScreenNames) -> Unit
 ) {
     NavigationBar(modifier = modifier) {
         navBarItems.forEach { item ->
             NavigationBarItem(
                 selected = currentScreen == item.screenName,
-                onClick = { /*TODO*/ },
+                onClick = { onItemSelected(item.screenName) },
                 icon = {
                     BadgedBox(badge = {}) {
                         Icon(
