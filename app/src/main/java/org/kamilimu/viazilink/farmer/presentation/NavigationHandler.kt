@@ -74,10 +74,7 @@ internal fun NavigationHandler(
             route = "farmerScreens"
         ) {
             composable(route = ScreenNames.MainScreen.route) {
-                MainScreen(
-//                    navController = navController,
-                    modifier = Modifier.fillMaxSize()
-                )
+                MainScreen(modifier = Modifier.fillMaxSize())
             }
         }
     }

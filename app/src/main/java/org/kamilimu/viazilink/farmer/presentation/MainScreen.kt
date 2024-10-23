@@ -83,12 +83,21 @@ fun MainScreen(
                         outlinedIcon = Icons.Outlined.Person
                     )
                 ),
-                currentScreen = currentScreen
+                currentScreen = currentScreen,
+                onItemSelected = { screenName ->
+                    navController.navigate(screenName.route) {
+                        popUpTo(navController.graph.startDestinationId) {
+                            saveState = true
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                }
             )
         }
     ) { paddingValues ->
         NavHost(
-            navController = rememberNavController(),
+            navController = navController,
             startDestination = ScreenNames.HomeScreen.route,
             modifier = Modifier.padding(paddingValues)
         ) {
@@ -98,8 +107,12 @@ fun MainScreen(
             composable(route = ScreenNames.NewListingScreen.route) {
                 AddListingPage()
             }
-            composable(route = ScreenNames.ProfileScreen.route) {}
-            composable(route = ScreenNames.ExistingListingsScreen.route) {}
+            composable(route = ScreenNames.ProfileScreen.route) {
+                ProfilePage()
+            }
+            composable(route = ScreenNames.ExistingListingsScreen.route) {
+                ProduceListingsPage(scrollBehavior = scrollBehavior)
+            }
         }
     }
 }

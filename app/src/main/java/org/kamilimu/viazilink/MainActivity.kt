@@ -14,7 +14,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.kamilimu.viazilink.farmer.presentation.AuthViewModel
-import org.kamilimu.viazilink.farmer.presentation.MainScreen
 import org.kamilimu.viazilink.farmer.presentation.NavigationHandler
 import org.kamilimu.viazilink.ui.theme.AppTheme
 

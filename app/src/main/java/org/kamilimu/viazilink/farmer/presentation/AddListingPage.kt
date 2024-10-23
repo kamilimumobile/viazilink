@@ -45,6 +45,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.kamilimu.viazilink.R
 import org.kamilimu.viazilink.farmer.domain.model.Listing
+import org.kamilimu.viazilink.farmer.domain.model.listingSaver
 import org.kamilimu.viazilink.ui.theme.AppTheme
 import org.kamilimu.viazilink.util.ScreenViewState
 import org.kamilimu.viazilink.util.components.LoadingIndicator
@@ -81,7 +82,7 @@ private fun AddListingContent(
     var quantity by rememberSaveable { mutableStateOf("") }
     var price by rememberSaveable { mutableStateOf("") }
     var deliveryTimeFrame by rememberSaveable { mutableStateOf("") }
-    var newListing by rememberSaveable { mutableStateOf(Listing("", 0, 0, 0)) }
+    var newListing by rememberSaveable(stateSaver = listingSaver) { mutableStateOf(Listing("", 0, 0, 0)) }
 
     when (screenState) {
         is ScreenViewState.PreActivity -> {
@@ -103,7 +104,7 @@ private fun AddListingContent(
                                 Spacer(modifier = Modifier.width(dimensionResource(R.dimen.padding_extra_small)))
                                 ExposedDropdownMenuBox(
                                     expanded = expanded,
-                                    onExpandedChange = { expanded = !it }
+                                    onExpandedChange = { expanded = !expanded }
                                 ) {
                                     OutlinedTextField(
                                         value = typeOfPotato,
@@ -119,7 +120,8 @@ private fun AddListingContent(
                                             ExposedDropdownMenuDefaults.TrailingIcon(
                                                 expanded = expanded
                                             )
-                                        }
+                                        },
+                                        modifier = Modifier.menuAnchor()
                                     )
                                     ExposedDropdownMenu(
                                         expanded = expanded,
@@ -341,7 +343,8 @@ private fun AddListingContentPreview() {
             /*screenState = ScreenViewState.Success(
                 Listing("Irish Potatoes", 50, 5000, 10)
             ),*/
-            screenState = ScreenViewState.Failure("Network Error"),
+            /*screenState = ScreenViewState.Failure("Network Error")*/
+            screenState = ScreenViewState.PreActivity,
             onPostListing = { _ -> },
             onCancel = {}
         )
