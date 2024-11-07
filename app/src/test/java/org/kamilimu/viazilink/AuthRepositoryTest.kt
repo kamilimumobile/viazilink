@@ -11,7 +11,6 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.kamilimu.viazilink.farmer.data.repository.AuthRepositoryImpl
-import org.kamilimu.viazilink.farmer.domain.repository.AuthRepository
 import org.kamilimu.viazilink.util.AuthStatus
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner

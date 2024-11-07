@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import org.kamilimu.viazilink.farmer.domain.model.FirestoreError
 import org.kamilimu.viazilink.farmer.domain.model.Listing
 import org.kamilimu.viazilink.farmer.domain.repository.FarmerRepository
 import org.kamilimu.viazilink.util.ScreenViewState
